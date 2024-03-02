@@ -1,7 +1,11 @@
 {
-  "type": "module",
-  "private": true,
+  "name": "@bicycle-codes/util",
   "version": "0.0.0",
+  "description": "Utility functions, *featuring*, the promise queue.",
+  "directories": {
+    "test": "test"
+  },
+  "type": "module",
   "main": "dist/index.js",
   "files": [
     "./dist/*"
@@ -17,7 +21,6 @@
     "postversion": "git push --follow-tags && npm publish",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {},
   "devDependencies": {
     "@nichoth/debug": "^0.6.1",
     "@bicycle-codes/tapzero": "^0.8.10",
@@ -47,6 +50,20 @@
       ]
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bicycle-codes/util.git"
+  },
   "license": "MIT",
-  "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)"
+  "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
+  "keywords": [
+    "async",
+    "queue",
+    "utility",
+    "util"
+  ],
+  "bugs": {
+    "url": "https://github.com/bicycle-codes/util/issues"
+  },
+  "homepage": "https://github.com/bicycle-codes/util#readme"
 }

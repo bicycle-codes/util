@@ -45,7 +45,7 @@ test('queue with async', async t => {
  */
 test('queue multiple promises', async t => {
     const q = new Queue<string>()
-    const p1 = new Promise<string>((resolve) => {
+    const p1 = new Promise<string>(resolve => {
         setTimeout(() => resolve('p1'), 100)
     })
 
@@ -55,7 +55,7 @@ test('queue multiple promises', async t => {
         }, 200)
     })
 
-    let gotTwo
+    let gotTwo:boolean = false
     q.add(() => p2)
         .then(res => {
             gotTwo = true

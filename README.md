@@ -1,22 +1,45 @@
-# template ts ![tests](https://github.com/nichoth/template-ts/actions/workflows/nodejs.yml/badge.svg)
+# util
+![tests](https://github.com/nichoth/template-ts/actions/workflows/nodejs.yml/badge.svg)
 
-A template for typescript *dependency* modules that run in node. See [template-ts-browser](https://github.com/nichoth/template-ts-browser) for the same thing but targeting a browser environment.
+## install
+```sh
+npm i -S @bicycle-codes/util
+```
 
 ## use
 
-1. Use the template button in github. Or clone this then `rm -rf .git && git init`.
-2. `npm i && npm init`.
-3. Edit `README.md` -- change the CI badge URL + rewrite docs
-5. Edit the source code in `src/index.ts`, edit tests in `test`
+### Queue
+Create a queue of promises. Promises will execute 1 at a time, in sequential order.
 
-## featuring
+> [!NOTE]  
+> This will resolve promises in the order they were added to the queue.
 
-* compile the source to both ESM and CJS format, and put compiled files in `dist`.
-* ignore `dist` and `*.js` in git, but don't ignore them in npm. That way we don't commit any compiled code to git, but it is available to consumers.
-* use npm's `prepublishOnly` hook to compile the code before publishing to npm.
-* use `exports` field in `package.json` to make sure the right format is used by consumers.
-* `preversion` npm hook -- lint via `standardx`.
-* `postversion` npm hook -- `git push && git push --tags && npm publish`
-* eslint via [standardx](https://www.npmjs.com/package/standardx) -- `npm run lint`
-* compile tests and run in a node environment
-* CI via github actions
+#### example
+
+```ts
+import { Queue } from '@bicycle-codes/util'
+const q = new Queue<string>()
+
+// add a function that returns a promise
+
+const p1 = new Promise<string>(resolve => {
+    setTimeout(() => resolve('p1'), 100)
+})
+
+const p2 = new Promise<string>(resolve => {
+    setTimeout(() => resolve('p2'), 200)
+})
+
+let gotTwo:boolean = false
+q.add(() => p2)
+    .then(res => {
+        gotTwo = true
+        t.equal(res, 'p2')
+    })
+
+q.add(() => p1)
+    .then(res => {
+        t.equal(res, 'p1')
+        t.ok(gotTwo, 'should get results in order they were added')
+    })
+```
