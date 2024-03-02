@@ -11,6 +11,14 @@ npm i -S @bicycle-codes/util
 ### Queue
 Create a queue of promises. Promises will execute 1 at a time, in sequential order.
 
+#### add
+Take a function that returns a promise. Return a promise that will resolve when
+the created promise resolves.
+
+```ts
+add (createPromise:() => Promise<T>):Promise<T>
+```
+
 > [!NOTE]  
 > This will resolve promises in the order they were added to the queue.
 
@@ -19,8 +27,6 @@ Create a queue of promises. Promises will execute 1 at a time, in sequential ord
 ```ts
 import { Queue } from '@bicycle-codes/util'
 const q = new Queue<string>()
-
-// add a function that returns a promise
 
 const p1 = new Promise<string>(resolve => {
     setTimeout(() => resolve('p1'), 100)
@@ -31,6 +37,8 @@ const p2 = new Promise<string>(resolve => {
 })
 
 let gotTwo:boolean = false
+
+// add a function that returns a promise
 q.add(() => p2)
     .then(res => {
         gotTwo = true
