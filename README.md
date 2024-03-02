@@ -20,7 +20,7 @@ Take a function that returns a promise. Return a promise that will resolve when
 the created promise resolves.
 
 ```ts
-add (createPromise:() => Promise<T>):Promise<T>
+add (createP:() => Promise<T>):Promise<T|null>
 ```
 
 > [!NOTE]  

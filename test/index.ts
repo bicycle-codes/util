@@ -97,7 +97,7 @@ test('queue of 3 items', t => {
 
     // p1 takes the longest
     p1.then((value) => {
-        t.equal(value, 'p1', 'p1 string is ok')
+        t.equal(value, 'p1', '"p1" string is ok')
         returned[0] = true
         t.ok(!returned[2], 'p2 should not have returned yet')
         t.ok(!returned[1], 'p1 should not have returned yet')
