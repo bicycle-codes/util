@@ -29,29 +29,33 @@ add (createPromise:() => Promise<T>):Promise<T>
 #### example
 
 ```ts
+import { test } from '@bicycle-codes/tapzero'
 import { Queue } from '@bicycle-codes/util'
-const q = new Queue<string>()
 
-const p1 = new Promise<string>(resolve => {
-    setTimeout(() => resolve('p1'), 100)
-})
+test('queue multiple promises', async t => {
+    const q = new Queue<string>()
 
-const p2 = new Promise<string>(resolve => {
-    setTimeout(() => resolve('p2'), 200)
-})
-
-let gotTwo:boolean = false
-
-// add a function that returns a promise
-q.add(() => p2)
-    .then(res => {
-        gotTwo = true
-        t.equal(res, 'p2')
+    const p1 = new Promise<string>(resolve => {
+        setTimeout(() => resolve('p1'), 100)
     })
 
-q.add(() => p1)
-    .then(res => {
-        t.equal(res, 'p1')
-        t.ok(gotTwo, 'should get results in order they were added')
+    const p2 = new Promise<string>(resolve => {
+        setTimeout(() => resolve('p2'), 200)
     })
+
+    let gotTwo:boolean = false
+
+    // add a function that returns a promise
+    q.add(() => p2)
+        .then(res => {
+            gotTwo = true
+            t.equal(res, 'p2')
+        })
+
+    q.add(() => p1)
+        .then(res => {
+            t.equal(res, 'p1')
+            t.ok(gotTwo, 'should get results in order they were added')
+        })
+})
 ```
