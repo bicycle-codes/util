@@ -21,6 +21,7 @@
     "postversion": "git push --follow-tags && npm publish --access=public",
     "prepublishOnly": "npm run build"
   },
+  "dependencies": {},
   "devDependencies": {
     "@nichoth/debug": "^0.6.1",
     "@bicycle-codes/tapzero": "^0.8.10",
