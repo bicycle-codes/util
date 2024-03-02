@@ -32,7 +32,7 @@ add (createP:() => Promise<T>):Promise<T|null>
 import { test } from '@bicycle-codes/tapzero'
 import { Queue } from '@bicycle-codes/util'
 
-est('queue of 3 items', t => {
+test('queue of 3 items', t => {
     const q = new Queue<string>()
 
     // [p1, p2, p3]
