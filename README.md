@@ -79,8 +79,9 @@ test('queue of 3 items', t => {
         t.ok(returned[1], 'should have p2 because it was added next')
     })
 
-    // return 3 because they resolve in order,
-    // event though the ms are backwards
+    // return 3 so the test knows when to end,
+    // because they resolve in order,
+    // even though the ms are backwards
     return p3
 })
 ```
