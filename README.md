@@ -12,11 +12,23 @@ npm i -S @bicycle-codes/util
 
 ## use
 
+### sleep
+Import sleep from here to reduce duplication.
+
 ```js
-import { Queue } from '@bicycle-codes/queue/queue'
+import { sleep } from '@bicycle-codes/util/sleep'
+```
+
+#### sleep API
+```ts
+function sleep (ms?:number):Promise<void>
 ```
 
 ### Queue
+```js
+import { Queue } from '@bicycle-codes/util/queue'
+```
+
 Create a queue of promises. Promises will execute 1 at a time, in sequential order.
 
 ```ts

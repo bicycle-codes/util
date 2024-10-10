@@ -8,7 +8,7 @@ export function stringToRegExp (str:string):RegExp {
 
     return new RegExp('^' + str + '$', 'i')
 
-    function tweak (match, slash, format, key, capture, optional) {
+    function tweak (match, slash, format, _key, capture, optional) {
         if (match === '*') {
             return match
         }
