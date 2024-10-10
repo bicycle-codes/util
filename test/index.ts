@@ -1,5 +1,6 @@
 import { test } from '@bicycle-codes/tapzero'
-import { Queue } from '../src/index.js'
+import { Queue } from '../src/queue.js'
+import { sleep } from '../src/sleep.js'
 
 test('queue', t => {
     const start = Date.now()
@@ -121,4 +122,19 @@ test('queue of 3 items', t => {
     // return 3 because they resolve in order,
     // event though the ms are backwards
     return p3
+})
+
+test('sleep', async t => {
+    let n:number = 42
+    setTimeout(() => {
+        t.equal(n, 42, 'should start at 42')
+    }, 50)
+
+    setTimeout(() => {
+        t.equal(n, 43, 'should increase after waiting 100ms')
+    }, 200)
+
+    await sleep(100)
+    n = 43
+    return sleep(201)  // So assertion doesnt happen after test end
 })

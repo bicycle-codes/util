@@ -12,15 +12,25 @@ npm i -S @bicycle-codes/util
 
 ## use
 
+```js
+import { Queue } from '@bicycle-codes/queue/queue'
+```
+
 ### Queue
 Create a queue of promises. Promises will execute 1 at a time, in sequential order.
+
+```ts
+class Queue<T> {
+    add (createP:()=>Promise<T>):Promise<T|void>
+}
+```
 
 #### add
 Take a function that returns a promise. Return a promise that will resolve when
 the created promise resolves.
 
 ```ts
-add (createP:() => Promise<T>):Promise<T|null>
+add (createP:()=>Promise<T>):Promise<T|void>
 ```
 
 > [!NOTE]  
