@@ -1,6 +1,6 @@
 {
   "name": "@bicycle-codes/util",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Utility functions, *featuring*, the promise queue.",
   "directories": {
     "test": "test"
