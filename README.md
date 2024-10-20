@@ -4,6 +4,19 @@
 [![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
+<details>
+<summary><h2>Contents</h2></summary>
+
+<!-- toc -->
+
+- [install](#install)
+- [use](#use)
+  * [sleep](#sleep)
+  * [Queue](#queue)
+
+<!-- tocstop -->
+
+</details>
 
 ## install
 ```sh
