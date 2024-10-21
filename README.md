@@ -12,6 +12,7 @@
 - [install](#install)
 - [use](#use)
   * [sleep](#sleep)
+  * [`humanFilesize`](#humanfilesize)
   * [Queue](#queue)
 
 <!-- tocstop -->
