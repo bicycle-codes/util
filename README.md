@@ -30,11 +30,26 @@ Import sleep from here to reduce duplication.
 
 ```js
 import { sleep } from '@bicycle-codes/util/sleep'
+
+await sleep(500)  // 1/2 second
 ```
 
-#### sleep API
+### `humanFilesize`
+Take the number of bytes, return a string abbreviated to common sizes (megabyte, kilobyte, etc).
+
+#### Example
 ```ts
-function sleep (ms?:number):Promise<void>
+import { humanFilesize } from '@bicycle-codes/util/filesize'
+```
+
+#### API
+
+```ts
+function humanFilesize (
+    bytes:number,
+    si:boolean = false,
+    dp:number = 1
+):string
 ```
 
 ### Queue

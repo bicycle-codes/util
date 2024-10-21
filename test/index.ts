@@ -1,6 +1,7 @@
 import { test } from '@bicycle-codes/tapzero'
 import { Queue } from '../src/queue.js'
 import { sleep } from '../src/sleep.js'
+import './filesize.js'
 
 test('queue', t => {
     const start = Date.now()
