@@ -3,7 +3,7 @@ import { humanFilesize } from '../src/filesize.js'
 
 test('human filesize', t => {
     const size = humanFilesize(10_000)
-    t.equal(size, '9.8 KiB', 'should return ')
+    t.equal(size, '9.8 KiB', 'should return 9.8 Kib')
 })
 
 test('human filesize, use SI units', t => {

@@ -41,6 +41,10 @@ Take the number of bytes, return a string abbreviated to common sizes (megabyte,
 #### Example
 ```ts
 import { humanFilesize } from '@bicycle-codes/util/filesize'
+
+const size = humanFilesize(10_000)
+console.log(size)
+// => 9.8 KiB
 ```
 
 #### API
@@ -52,6 +56,12 @@ function humanFilesize (
     dp:number = 1
 ):string
 ```
+
+##### arguments
+
+* `bytes` the byte count
+* `si` -- use [SI](https://en.wikipedia.org/wiki/International_System_of_Units), instead of [EIC](https://en.wikipedia.org/wiki/Binary_prefix) units (default `false`)
+* `dp` is the number of decimal places to show.
 
 ### Queue
 ```js
